@@ -81,7 +81,7 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explains v
 ### Blockchain view
 - This view displaces the complete blockchain at the time your hit this view.
 - This view is used to see the transaction made by the simulation and approval of the them using proof of work.
-- We use this view to verify transactions made.
+- We use this view to verify transactions made. View it at http://localhost:4000/getBlockChain
 
 
 # Bonus part
