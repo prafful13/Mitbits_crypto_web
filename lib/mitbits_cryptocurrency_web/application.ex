@@ -17,6 +17,7 @@ defmodule MitbitsCryptocurrencyWeb.Application do
 
       MitbitsCryptocurrencyWeb.NodeSupervisor,
       MitbitsCryptocurrencyWeb.MinerSupervisor,
+      MitbitsCryptocurrencyWeb.Stats,
       MitbitsCryptocurrencyWeb.Driver
     ]
 
