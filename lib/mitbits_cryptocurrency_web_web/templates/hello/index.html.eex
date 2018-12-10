@@ -1,3 +1,37 @@
-<div class="phx-hero">
-  <h2>Hello World, from Phoenix!</h2>
-</div>
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Mitbits Online Cyptrocurrency" %></h1>
+  <p>A fast decentralized money exchange system. <br/>Purposed this web interface is to show a simulation for 100 participants taking part in this is money exchange.</p>
+
+  <p>Currently when we started up our servers 100 participants were spwaned and 10K random transactions were created between them <br/> Below links will help you navigate through our simulation.</p>
+</section>
+
+<section class="row">
+  <article class="column">
+    <h2>Useful links</h2>
+    <ul>
+      <li>
+        <a href="https://hexdocs.pm/phoenix/overview.html">See the participants and generate transactions</a>
+      </li>
+      <li>
+        <a href="https://github.com/phoenixframework/phoenix">See the statistics of the simulation</a>
+      </li>
+      <li>
+        <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">See the current blockchain</a>
+      </li>
+    </ul>
+  </article>
+  <article class="column">
+    <h2>Help</h2>
+    <ul>
+      <li>
+        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
+      </li>
+      <li>
+        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
+      </li>
+      <li>
+        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
+      </li>
+    </ul>
+  </article>
+</section>

@@ -1,0 +1,99 @@
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+
+<div class="phx-hero">
+
+
+<h2>Account Information</h2>
+    <p>Participant's Public Key: <%= @participant %></p>
+    <p>Wallet: <%= @balance %></p>
+
+
+    <h2>Make Transaction</h2>
+    <p>Select from drop down list a user you want to send mitbits.</p>
+
+
+        <body onload="func();">
+
+<!--    <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+       <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+        <a href="#about">About</a>
+        <a href="#base">Base</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#custom">Custom</a>
+        <a href="#support">Support</a>
+        <a href="#tools">Tools</a>
+      </div>
+    </div>-->
+
+<select id="select" onchange="pkFunction()">
+<option value="default">default</option>
+</select>
+<form id="form">
+
+<input type="text" id="publicKey" placeholder="user">
+    <p>Enter the amount of mitbits to be send below.</p>
+<input type="text" id="amount" placeholder="amount" >
+</form>
+<button onclick="myfunc()">Submit</button>
+
+<script>
+
+function myfunc() {
+    var x = document.getElementById("form");
+    var to =  x.elements[0].value;
+    var amount =  x.elements[1].value;
+    href="http://localhost:4000/createTransaction/<%= @participant %>/" + to + "/" + amount;
+    window.location=href;
+}
+
+var select = document.getElementById("select");
+var arr = [];
+<%= for {p} <- @nodes do %>
+arr.push("<%=p %>");
+<%= end %>
+console.log(arr)
+
+for(var i=0; i<arr.length; i++) {
+var option = document.createElement("OPTION"), txt = document.createTextNode(arr[i]);
+option.appendChild(txt);
+option.setAttribute("value",arr[i]);
+select.insertBefore(option,select.lastChild);
+}
+
+
+function pkFunction() {
+   //Getting Value
+   //var selValue = document.getElementById("singleSelectDD").value;
+   var selObj = document.getElementById("select");
+   var selValue = selObj.options[selObj.selectedIndex].value;
+   //Setting Value
+   document.getElementById("publicKey").value = selValue;
+}
+
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    function filterFunction() {
+        var input, filter, ul, li, a, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdown");
+        a = div.getElementsByTagName("a");
+        for (i = 0; i < a.length; i++) {
+            if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    }
+    </script>
+
+
+</div>

@@ -133,15 +133,93 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
   end
 
   def index(conn, _params) do
-    #MitbitsCryptocurrencyWeb.Application.start(:normal)
-
-    [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
-    IO.inspect(Enum.count all_nodes)
 
     render(conn, "index.html")
   end
 
-  def show(conn, %{"messenger" => messenger}) do
-    render(conn, "show.html", messenger: messenger)
+#  def simulator(conn, _params) do
+#    #MitbitsCryptocurrencyWeb.Application.start(:normal)
+#
+#    [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
+#
+#    Enum.each(1..(acc * 2000), fn i ->
+#      {node1_hash} = Enum.random(all_nodes)
+#      {node2_hash} = Enum.random(all_nodes)
+#      amount = Enum.random(1..10)
+#
+#      GenServer.cast(
+#        MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> node1_hash),
+#        {:req_for_MitbitsCryptocurrencyWeb, amount, node2_hash}
+#      )
+#    end)
+#
+#    render(conn, "startup.html")
+#  end
+
+#  def show(conn, %{"messenger" => messenger}) do
+#    render(conn, "show.html", messenger: messenger)
+#  end
+
+
+  def show(conn, _params) do
+    [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
+
+
+    render(conn, "show.html", messenger: all_nodes)
+  end
+
+
+  def account(conn, %{"participant" => participant}) do
+
+    balance = MitbitsCryptocurrencyWeb.Node.get_balance(participant)
+    [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
+
+    other_nodes = all_nodes -- [participant]
+    render(conn, "account.html", balance: balance,participant: participant, nodes: other_nodes)
+  end
+
+  def create(conn, params) do
+
+    participant = Map.get(params, "participant")
+    to = Map.get(params,"to")
+    amount = Map.get(params, "amount")
+
+    GenServer.cast(
+      MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> participant),
+      {:req_for_MitbitsCryptocurrencyWeb, amount, to}
+    )
+
+    render(conn, "txn.html", participant: participant, to: to, amount: amount);
+
+  end
+
+  def blockchain(conn, params) do
+
+    [{_, node_hash}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
+
+    {first} = Enum.at(node_hash, 0)
+    IO.puts("**********************************************")
+    IO.puts("Printing block chain")
+
+    {blockchain} =
+      GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> first), :get_blockchain)
+
+    render(conn, "blockchain.html", blockchain: blockchain);
+
+  end
+
+  def stats(conn, params) do
+
+    [{_, node_hash}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
+
+    {first} = Enum.at(node_hash, 0)
+    IO.puts("**********************************************")
+    IO.puts("Printing block chain")
+
+    {blockchain} =
+      GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> first), :get_blockchain)
+
+    render(conn, "blockchain.html", blockchain: blockchain);
+
   end
 end

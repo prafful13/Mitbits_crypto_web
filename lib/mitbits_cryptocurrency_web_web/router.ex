@@ -18,7 +18,17 @@ defmodule MitbitsCryptocurrencyWebWeb.Router do
 
     get "/", PageController, :index
     get "/hello", HelloController, :index
-    get "/hello/:messenger", HelloController, :show
+    get "/showParticipants", HelloController, :show
+    get "/participant/:participant", HelloController, :account
+    get "/createTransaction/:participant/:to/:amount", HelloController, :create
+    get "/getBlockChain", HelloController, :blockchain
+    get "/stats", HelloController, :stats
+
+
+
+
+    #href="http://localhost:4000/createTransaction/<%= @participant %>/" + to + "/" + amount;
+
 
   end
 

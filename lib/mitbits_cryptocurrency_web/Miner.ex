@@ -115,11 +115,7 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
           timestamp: System.system_time()
         }
 
-        {:ok} =
-          GenServer.call(
-            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> my_hash),
-            {:delete_txns, txn_set}
-          )
+
 
           IO.inspect(block)
 
@@ -138,6 +134,12 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
             GenServer.call(
               MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
               {:rec_new_block, block}
+            )
+
+          {:ok} =
+            GenServer.call(
+              MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
+              {:delete_txns, txn_set}
             )
 
           {:ok} =

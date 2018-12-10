@@ -12,7 +12,7 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
+            <li><a href="https://github.com/siddhantmittal7/Mitbits_Cryptocurrency">GitHub</a></li>
           </ul>
         </nav>
         <a href="http://phoenixframework.org/" class="phx-logo">
@@ -24,7 +24,25 @@
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
       <%= render @view_module, @view_template, assigns %>
+      <section class="row">
+        <article class="column">
+          <h2>Useful links</h2>
+          <ul>
+            <li>
+              <a href="http://localhost:4000/showParticipants">See the participants and generate transactions</a>
+            </li>
+            <li>
+              <a href="https://github.com/phoenixframework/phoenix">See the statistics of the simulation</a>
+            </li>
+            <li>
+              <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">See the current blockchain</a>
+            </li>
+          </ul>
+        </article>
+      </section>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+
+
   </body>
 </html>
