@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MitbitsCryptocurrencyWeb
 
 To start your Phoenix server:
@@ -18,3 +19,6 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
   * Docs: https://hexdocs.pm/phoenix
   * Mailing list: http://groups.google.com/group/phoenix-talk
   * Source: https://github.com/phoenixframework/phoenix
+=======
+# Mitbits_Cryptocurrency_Web
+>>>>>>> 7a33702f5dc8b1407e959c9e3a1d57d98421c4c8
