@@ -14,7 +14,6 @@ After unziping the file, go into the directory and start the surver.
 
 ```sh
 $ cd mitbits_cryptocurrency_web
-$ mix phx.server
 ```
 
 To start your Phoenix server:
