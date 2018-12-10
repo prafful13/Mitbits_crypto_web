@@ -25,11 +25,20 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
     |> spawn_miner_nodes()
     |> spawn_nodes()
     |> start_mining()
-#    |> make_transactions()
+    |> start_stats()
+    |> make_transactions()
 
     #  assert 1+1 == 1
 
     {:noreply, {}}
+  end
+
+  def start_stats({acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
+    # IO.inspect System.system_time(:seconds)
+    :ets.insert(:MitbitsCryptocurrencyWeb, {"time_blockchain", [{System.system_time(:seconds), []}]})
+    MitbitsCryptocurrencyWeb.Stats.start()
+    # IO.puts "hey"
+    {acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}
   end
 
   def spawn_miners({numNodes, numMiners}) do

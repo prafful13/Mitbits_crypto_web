@@ -73,6 +73,11 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
 
     if Enum.count(sorted_unchained_txns) < size_of_txn_set do
       GenServer.cast(self(), :mine)
+      # [{_,curr_list}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "time_blockchain")
+      # IO.inspect curr_list
+      # Enum.each(curr_list, fn {timestamp, blockchain} ->
+      #   IO.inspect([timestamp, Enum.count(blockchain)])
+      # end)
       {:noreply, {pk, sk}}
     else
       my_hash = MitbitsCryptocurrencyWeb.Utility.getHash(pk)
@@ -121,7 +126,7 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
             {:delete_txns, txn_set}
           )
 
-          IO.inspect(block)
+          # IO.inspect(block)
 
 #        IO.inspect(
 #          GenServer.call(
