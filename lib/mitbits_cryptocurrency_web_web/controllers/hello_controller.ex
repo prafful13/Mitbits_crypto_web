@@ -198,9 +198,6 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
     [{_, node_hash}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
 
     {first} = Enum.at(node_hash, 0)
-    IO.puts("**********************************************")
-    IO.puts("Printing block chain")
-
     {blockchain} =
       GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> first), :get_blockchain)
 
@@ -210,16 +207,36 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
 
   def stats(conn, params) do
 
+    [{_,data}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "time_blockchain")
+
     [{_, node_hash}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
 
     {first} = Enum.at(node_hash, 0)
-    IO.puts("**********************************************")
-    IO.puts("Printing block chain")
 
-    {blockchain} =
-      GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> first), :get_blockchain)
+    indexed_blockchain =
+        GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> first), :get_indexed_blockchain)
 
-    render(conn, "blockchain.html", blockchain: blockchain);
+    render(conn, "stat.html", data: data, indexed_blockchain: indexed_blockchain);
+
+  end
+
+  def createTxn(conn, params) do
+
+    [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
+
+
+    Enum.each(1..(5 * 2000), fn i ->
+      {node1_hash} = Enum.random(all_nodes)
+      {node2_hash} = Enum.random(all_nodes)
+      amount = Enum.random(1..10)
+
+      GenServer.cast(
+        MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> node1_hash),
+        {:req_for_MitbitsCryptocurrencyWeb, amount, node2_hash}
+      )
+    end)
+
+    render(conn, "random.html");
 
   end
 end

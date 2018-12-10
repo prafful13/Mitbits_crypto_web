@@ -15,9 +15,7 @@
             <li><a href="https://github.com/siddhantmittal7/Mitbits_Cryptocurrency">GitHub</a></li>
           </ul>
         </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
+          <img src="<%= Routes.static_path(@conn, "/images/uf.png") %>"/>
       </section>
     </header>
     <main role="main" class="container">

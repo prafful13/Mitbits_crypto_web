@@ -35,7 +35,9 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
 
   def start_stats({acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
     # IO.inspect System.system_time(:seconds)
-    :ets.insert(:MitbitsCryptocurrencyWeb, {"time_blockchain", [{System.system_time(:seconds), []}]})
+    curr_time = System.system_time(:seconds)
+    :ets.insert(:MitbitsCryptocurrencyWeb, {"time_blockchain", [{0, []}]})
+    #:ets.insert(:MitbitsCryptocurrencyWeb, {"base_time", curr_time})
     MitbitsCryptocurrencyWeb.Stats.start()
     # IO.puts "hey"
     {acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}
@@ -129,6 +131,7 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
   end
 
   def start_mining({node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
+    IO.inspect("Mining has been started")
     acc =
       Enum.reduce(miner_pk_hash_sk, 0, fn {_, miner_hash, _}, acc ->
         MitbitsCryptocurrencyWeb.Miner.start_mining(miner_hash)

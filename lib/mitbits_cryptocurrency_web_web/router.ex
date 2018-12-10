@@ -23,6 +23,7 @@ defmodule MitbitsCryptocurrencyWebWeb.Router do
     get "/createTransaction/:participant/:to/:amount", HelloController, :create
     get "/getBlockChain", HelloController, :blockchain
     get "/stats", HelloController, :stats
+    get "/create10KrandomTrxn", HelloController, :createTxn
 
 
 

@@ -191,7 +191,7 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
     nonce = Enum.random(1..100)
 
     new_block_hash = find_first_block_hash(hash_of_first_and_reward_txn, nonce)
-    # IO.inspect(new_block_hash)
+    IO.inspect(new_block_hash)
 
     block = %{
       hash: new_block_hash,
