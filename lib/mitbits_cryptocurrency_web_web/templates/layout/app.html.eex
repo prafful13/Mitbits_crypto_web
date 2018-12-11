@@ -12,7 +12,7 @@
       <section class="container">
         <nav role="navigation">
           <ul>
-            <li><a href="https://github.com/siddhantmittal7/Mitbits_Cryptocurrency">GitHub</a></li>
+            <li><a href="http://localhost:4000">Home</a></li>
           </ul>
         </nav>
           <img src="<%= Routes.static_path(@conn, "/images/uf.png") %>"/>
@@ -30,11 +30,14 @@
               <a href="http://localhost:4000/showParticipants">See the participants and generate transactions</a>
             </li>
             <li>
-              <a href="https://github.com/phoenixframework/phoenix">See the statistics of the simulation</a>
+              <a href="http://localhost:4000/stats">See the statistics of the simulation</a>
             </li>
             <li>
-              <a href="https://github.com/phoenixframework/phoenix/blob/v1.4/CHANGELOG.md">See the current blockchain</a>
+              <a href="http://localhost:4000/getBlockChain">See the current blockchain</a>
             </li>
+                        <li>
+                          <a href="http://localhost:4000/create10KrandomTrxn">Generate 10,000 random transactions</a>
+                        </li>
           </ul>
         </article>
       </section>

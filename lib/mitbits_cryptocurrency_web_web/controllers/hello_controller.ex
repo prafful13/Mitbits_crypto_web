@@ -1,136 +1,6 @@
 defmodule MitbitsCryptocurrencyWebWeb.HelloController do
   use MitbitsCryptocurrencyWebWeb, :controller
 
-  #  def handle_info(:kickoff, {}) do
-  #    numNodes = 20
-  #    numMiners = 5
-  #    :ets.new(:mitbits, [:set, :public, :named_table])
-  #
-  #    {numNodes, numMiners}
-  #    |> spawn_miners()
-  #    |> create_genesis_block()
-  #    |> spawn_miner_nodes()
-  #    |> spawn_nodes()
-  #    |> start_mining()
-  #    |> make_transactions()
-  #
-  #    #  assert 1+1 == 1
-  #
-  #    {:noreply, {}}
-  #  end
-
-  def spawn_miners({numNodes, numMiners}) do
-    miner_pk_hash_sk =
-      Enum.map(1..numMiners, fn _ ->
-        {:ok, {sk, pk}} = RsaEx.generate_keypair()
-        hash_name = Mitbits.Utility.getHash(pk)
-        {:ok, _} = Mitbits.MinerSupervisor.add_miner(pk, sk, hash_name)
-        {pk, hash_name, sk}
-      end)
-
-    miners =
-      Enum.map(miner_pk_hash_sk, fn {_, hash_name, _} ->
-        {hash_name}
-      end)
-
-    :ets.insert(:mitbits, {"miners", miners})
-    {miner_pk_hash_sk, numNodes, numMiners}
-  end
-
-  def create_genesis_block({miner_pk_hash_sk, numNodes, numMiners}) do
-    [{_, first_miner_hash, _} | _] = miner_pk_hash_sk
-
-    {genesis_block} =
-      GenServer.call(
-        Mitbits.Utility.string_to_atom("miner_" <> first_miner_hash),
-        {:mine_first, "thefoxjkfsndaljd"}
-      )
-
-    :ets.insert(:mitbits, {"prev_block_hash", genesis_block.hash})
-    {genesis_block, miner_pk_hash_sk, numNodes, numMiners}
-  end
-
-  def spawn_miner_nodes({genesis_block, miner_pk_hash_sk, numNodes, numMiners}) do
-    miner_node_hash =
-      Enum.map(miner_pk_hash_sk, fn {pk, hash_name, sk} ->
-        {:ok, _} = Mitbits.NodeSupervisor.add_node(pk, sk, genesis_block, hash_name)
-
-        {:ok} =
-          GenServer.call(Mitbits.Utility.string_to_atom("node_" <> hash_name), :update_wallet)
-
-        {:ok} =
-          GenServer.call(
-            Mitbits.Utility.string_to_atom("node_" <> hash_name),
-            :add_latest_block_to_indexded_blockchain
-          )
-
-        {hash_name}
-      end)
-
-    {genesis_block, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}
-  end
-
-  def spawn_nodes({genesis_block, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
-    [{_, first_miner_hash, _} | _] = miner_pk_hash_sk
-
-    node_hash =
-      Enum.map(1..numNodes, fn _ ->
-        {:ok, {sk, pk}} = RsaEx.generate_keypair()
-        hash_name = Mitbits.Utility.getHash(pk)
-
-        if(hash_name != miner_node_hash) do
-          {:ok, _} = Mitbits.NodeSupervisor.add_node(pk, sk, genesis_block, hash_name)
-
-          {:ok} =
-            GenServer.call(
-              Mitbits.Utility.string_to_atom("node_" <> hash_name),
-              :add_latest_block_to_indexded_blockchain
-            )
-        end
-
-        {hash_name}
-      end)
-
-    all_nodes = miner_node_hash ++ node_hash
-
-    # IO.inspect(node_hash)
-    :ets.insert(:mitbits, {"nodes", all_nodes})
-
-    Enum.each(node_hash, fn {hash} ->
-      GenServer.cast(
-        Mitbits.Utility.string_to_atom("node_" <> first_miner_hash),
-        {:req_for_mitbits, 10, hash}
-      )
-    end)
-
-    {node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}
-  end
-
-  def start_mining({node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
-    acc =
-      Enum.reduce(miner_pk_hash_sk, 0, fn {_, miner_hash, _}, acc ->
-        Mitbits.Miner.start_mining(miner_hash)
-        acc + 1
-      end)
-
-    {acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}
-  end
-
-  def make_transactions({acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
-    [{_, all_nodes}] = :ets.lookup(:mitbits, "nodes")
-
-    Enum.each(1..(acc * 2000), fn i ->
-      {node1_hash} = Enum.random(all_nodes)
-      {node2_hash} = Enum.random(all_nodes)
-      amount = Enum.random(1..10)
-
-      GenServer.cast(
-        Mitbits.Utility.string_to_atom("node_" <> node1_hash),
-        {:req_for_mitbits, amount, node2_hash}
-      )
-    end)
-  end
-
   def index(conn, _params) do
     render(conn, "index.html")
   end
@@ -175,14 +45,20 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
   def create(conn, params) do
     participant = Map.get(params, "participant")
     to = Map.get(params, "to")
-    amount = Map.get(params, "amount")
+    amount = String.to_integer(Map.get(params, "amount"))
 
-    GenServer.cast(
+    {txn} = GenServer.call(
       MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> participant),
       {:req_for_MitbitsCryptocurrencyWeb, amount, to}
     )
 
-    render(conn, "txn.html", participant: participant, to: to, amount: amount)
+    if(txn != :invalid) do
+      id = txn.id
+      render(conn, "txn.html", participant: participant, to: to, amount: amount, signature: id)
+    else
+      signature = :invalid
+      render(conn, "txn.html", participant: participant, to: to, amount: amount, signature: signature)
+    end
   end
 
   def blockchain(conn, params) do
@@ -196,7 +72,18 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
         :get_blockchain
       )
 
-      IO.inspect blockchain
+#      blockchain = Enum.reduce(blockchain, [], fn block, list ->
+#        txns_list = Enum.reduce(block.txns, [], fn txn, txn_list ->
+#          # IO.inspect txn
+#          txn_list ++ [Map.to_list(txn)]
+#        end)
+#        IO.inspect block
+#        {_,block} = Map.get_and_update(block, :txns, fn curr -> {curr, txns_list} end)
+#        # block.txns = txns_list
+#        list ++ [Map.to_list(block)]
+#      end)
+#
+      #IO.inspect blockchain
 
     render(conn, "blockchain.html", blockchain: blockchain)
   end
@@ -221,9 +108,9 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
         list ++ [MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash)]
       end)
 
-    IO.inspect(Map.keys(indexed_blockchain))
+    #IO.inspect(Map.keys(indexed_blockchain))
     {miners, nodes} = Map.split(indexed_blockchain, list)
-    IO.inspect([miners, nodes])
+    #IO.inspect([miners, nodes])
 
     render(conn, "stat.html", data: data, miners: miners, nodes: nodes)
   end

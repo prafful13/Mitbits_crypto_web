@@ -1,7 +1,7 @@
 <div class="phx-hero">
 
 
-<h2>Transaction from <%= @participant %> to <%= @to %> for amount <%= @amount %> mitbits </br>has be recorded in transaction pool</h2>
+<p>Transaction from <%= @participant %> to <%= @to %> for amount <%= @amount %> mitbits </br>has be recorded in transaction pool and txn id is <%=  @signature %></p>
 
             <a href="http://localhost:4000/participant/<%= @participant %>">Back to user account page</a>
 
