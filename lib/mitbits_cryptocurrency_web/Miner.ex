@@ -1,7 +1,8 @@
 defmodule MitbitsCryptocurrencyWeb.Miner do
   use GenServer, restart: :transient
-  # @target "0000" <> "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-  @target "000" <> "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  #@target "00000" <> "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+   @target "0000" <> "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  #@target "000" <> "fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
   # @target "00" <> "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
 
   # API
@@ -77,7 +78,7 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
         []
       end
 
-    size_of_txn_set = 5
+    size_of_txn_set = 10
 
     if Enum.count(sorted_unchained_txns) < size_of_txn_set do
       GenServer.cast(self(), :mine)
@@ -119,7 +120,7 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
         {:noreply, {pk, sk}}
       else
         # IO.inspect(new_block_hash)
-        :ets.insert(:MitbitsCryptocurrencyWeb, {"prev_block_hash", new_block_hash})
+
 
         block = %{
           hash: new_block_hash,
@@ -128,29 +129,22 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
           timestamp: System.system_time()
         }
 
-        # IO.inspect(block)
-
-        #        IO.inspect(
-        #          GenServer.call(
-        #            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> my_hash),
-        #            :get_indexed_blockchain
-        #          )
-        #        )
 
         # Send block to all
         [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
 
         Enum.each(all_nodes, fn {hash} ->
+
           {:ok} =
-            GenServer.call(
-              MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
-              {:rec_new_block, block}
-            )
+          GenServer.call(
+            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
+            {:delete_txns, txn_set}
+          )
 
           {:ok} =
             GenServer.call(
               MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
-              {:delete_txns, txn_set}
+              {:rec_new_block, block}
             )
 
           {:ok} =
@@ -165,6 +159,8 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
               :update_wallet
             )
         end)
+
+        :ets.insert(:MitbitsCryptocurrencyWeb, {"prev_block_hash", new_block_hash})
 
         GenServer.cast(self(), :mine)
         {:noreply, {pk, sk}}

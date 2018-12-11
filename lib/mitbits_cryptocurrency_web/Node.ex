@@ -242,11 +242,12 @@ defmodule MitbitsCryptocurrencyWeb.Node do
 
   def handle_call(
         {:delete_txns, txn},
-        _from,
+          _from,
         {pk, sk, blockchain, txn_list, balance, indexed_blockchain}
       ) do
     updated_txns = txn_list -- txn
-    {:reply, {:ok}, {pk, sk, blockchain, updated_txns, balance, indexed_blockchain}}
+    #IO.inspect([pk,Enum.count(txn_list),Enum.count(updated_txns)]);
+    {:reply,{:ok}, {pk, sk, blockchain, updated_txns, balance, indexed_blockchain}}
   end
 
   def handle_call(

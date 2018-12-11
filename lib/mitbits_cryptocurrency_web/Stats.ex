@@ -21,7 +21,7 @@ defmodule MitbitsCryptocurrencyWeb.Stats do
     numNodes = Enum.count(all_nodes)
     # IO.inspect numNodes
 
-    if(numNodes == 25) do
+    if(numNodes == 105) do
       [{_, curr_list}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "time_blockchain")
       # [{_,base_time}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "base_time")
       [latest_entry | _] = curr_list
