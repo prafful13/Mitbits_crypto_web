@@ -9,7 +9,7 @@ defmodule MitbitsCryptocurrencyWeb.Application do
     # List all child processes to be supervised
     children = [
       # Start the Ecto repository
-      #MitbitsCryptocurrencyWeb.Repo,
+      # MitbitsCryptocurrencyWeb.Repo,
       # Start the endpoint when the application starts
       MitbitsCryptocurrencyWebWeb.Endpoint,
       # Starts a worker by calling: MitbitsCryptocurrencyWeb.Worker.start_link(arg)
@@ -33,6 +33,4 @@ defmodule MitbitsCryptocurrencyWeb.Application do
     MitbitsCryptocurrencyWebWeb.Endpoint.config_change(changed, removed)
     :ok
   end
-
-
 end

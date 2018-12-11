@@ -36,11 +36,19 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
     my_hash = MitbitsCryptocurrencyWeb.Utility.getHash(pk)
 
     {curr_unchained_txns} =
-      GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> my_hash), :get_txns)
+      GenServer.call(
+        MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> my_hash),
+        :get_txns
+      )
 
     authenticated_txn_list =
       Enum.reduce(curr_unchained_txns, [], fn txn, temp_list ->
-        from_pk = GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom(txn.message.from), :get_pk)
+        from_pk =
+          GenServer.call(
+            MitbitsCryptocurrencyWeb.Utility.string_to_atom(txn.message.from),
+            :get_pk
+          )
+
         signature = txn.signature
 
         string = MitbitsCryptocurrencyWeb.Utility.txn_msg_to_string(txn.message)
@@ -58,12 +66,12 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
              balance_from_hash >= txn.message.amount do
           temp_list ++ [txn]
         else
-        temp_list
+          temp_list
         end
       end)
 
     sorted_unchained_txns =
-      if (authenticated_txn_list != nil) do
+      if authenticated_txn_list != nil do
         Enum.sort_by(curr_unchained_txns, fn txn -> txn.timestamp end)
       else
         []
@@ -120,16 +128,14 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
           timestamp: System.system_time()
         }
 
+        # IO.inspect(block)
 
-
-          # IO.inspect(block)
-
-#        IO.inspect(
-#          GenServer.call(
-#            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> my_hash),
-#            :get_indexed_blockchain
-#          )
-#        )
+        #        IO.inspect(
+        #          GenServer.call(
+        #            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> my_hash),
+        #            :get_indexed_blockchain
+        #          )
+        #        )
 
         # Send block to all
         [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
@@ -153,7 +159,11 @@ defmodule MitbitsCryptocurrencyWeb.Miner do
               :add_latest_block_to_indexded_blockchain
             )
 
-          {:ok} = GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash), :update_wallet)
+          {:ok} =
+            GenServer.call(
+              MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
+              :update_wallet
+            )
         end)
 
         GenServer.cast(self(), :mine)

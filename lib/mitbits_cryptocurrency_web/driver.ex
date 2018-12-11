@@ -37,7 +37,7 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
     # IO.inspect System.system_time(:seconds)
     curr_time = System.system_time(:seconds)
     :ets.insert(:MitbitsCryptocurrencyWeb, {"time_blockchain", [{0, []}]})
-    #:ets.insert(:MitbitsCryptocurrencyWeb, {"base_time", curr_time})
+    # :ets.insert(:MitbitsCryptocurrencyWeb, {"base_time", curr_time})
     MitbitsCryptocurrencyWeb.Stats.start()
     # IO.puts "hey"
     {acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}
@@ -77,10 +77,14 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
   def spawn_miner_nodes({genesis_block, miner_pk_hash_sk, numNodes, numMiners}) do
     miner_node_hash =
       Enum.map(miner_pk_hash_sk, fn {pk, hash_name, sk} ->
-        {:ok, _} = MitbitsCryptocurrencyWeb.NodeSupervisor.add_node(pk, sk, genesis_block, hash_name)
+        {:ok, _} =
+          MitbitsCryptocurrencyWeb.NodeSupervisor.add_node(pk, sk, genesis_block, hash_name)
 
         {:ok} =
-          GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash_name), :update_wallet)
+          GenServer.call(
+            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash_name),
+            :update_wallet
+          )
 
         {:ok} =
           GenServer.call(
@@ -103,7 +107,8 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
         hash_name = MitbitsCryptocurrencyWeb.Utility.getHash(pk)
 
         if(hash_name != miner_node_hash) do
-          {:ok, _} = MitbitsCryptocurrencyWeb.NodeSupervisor.add_node(pk, sk, genesis_block, hash_name)
+          {:ok, _} =
+            MitbitsCryptocurrencyWeb.NodeSupervisor.add_node(pk, sk, genesis_block, hash_name)
 
           {:ok} =
             GenServer.call(
@@ -132,6 +137,7 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
 
   def start_mining({node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
     IO.inspect("Mining has been started")
+
     acc =
       Enum.reduce(miner_pk_hash_sk, 0, fn {_, miner_hash, _}, acc ->
         MitbitsCryptocurrencyWeb.Miner.start_mining(miner_hash)

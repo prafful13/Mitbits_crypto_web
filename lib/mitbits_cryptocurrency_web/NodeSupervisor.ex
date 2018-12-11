@@ -11,6 +11,9 @@ defmodule MitbitsCryptocurrencyWeb.NodeSupervisor do
 
   def add_node(pk, sk, genesis_block, hash_name) do
     {:ok, pid} =
-      DynamicSupervisor.start_child(@me, {MitbitsCryptocurrencyWeb.Node, {pk, sk, genesis_block, hash_name}})
+      DynamicSupervisor.start_child(
+        @me,
+        {MitbitsCryptocurrencyWeb.Node, {pk, sk, genesis_block, hash_name}}
+      )
   end
 end
