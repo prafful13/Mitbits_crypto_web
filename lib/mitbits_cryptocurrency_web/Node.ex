@@ -297,7 +297,7 @@ defmodule MitbitsCryptocurrencyWeb.Node do
 
       signature_txn_msg = MitbitsCryptocurrencyWeb.Utility.sign(str_txn_msg, sk)
 
-      txn = %{signature: signature_txn_msg, message: txn_msg, timestamp: System.system_time()}
+      txn = %{signature: signature_txn_msg, message: txn_msg, timestamp: System.system_time(), id: MitbitsCryptocurrencyWeb.Utility.getHash(signature_txn_msg)}
 
       updated_txn_list = txn_list ++ [txn]
 

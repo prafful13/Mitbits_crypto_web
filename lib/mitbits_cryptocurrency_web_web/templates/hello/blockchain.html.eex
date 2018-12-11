@@ -1,4 +1,4 @@
-<section class="phx-hero">
+
 
 
 <style>
@@ -19,15 +19,51 @@ tr:nth-child(even) {
 }
 </style>
 
-<script>
-console.log(<%=@blockchain%>);
-</script>
+
 
 <table>
+
+    <%= for p <- @blockchain do %>
+   <tr> <td>
+        <%= for {item,v} <- p do %>
+            <%= if(item == :txns) do %>
+                <%=  if(is_list(v) == true) do %>
+                       <%= for l <- v do %>
+                       <table>
+                       <tr> <td>
+                           <%= for {i1,v1} <- l do %>
+
+                               <%= if(i1 == :message) do %>
+                                     <%=  if(is_map(v1) == true) do %>
+
+
+                                        <%= for {e,f} <- v1 do %>
+                                            <%= e %>:<%= f %><br>
+                                        <% end %>
+                                     <% else %>
+                                        <%= i1 %>:<%= v1 %><br>
+                                     <% end %>
+
+
+
+                                <% else %>
+                                    <%= if(i1 != :signature) do %>
+                                        <%= i1 %>:<%= v1 %><br>
+                                     <% end %>
+                                <% end %>
+                            <% end %>
+                            </td></tr>
+                            </table>
+                       <% end %>
+                <%= end %>
+
+            <% else %>
+                <%= item %>:<%= v %>
+            <% end %>
+        <% end %>
+        </td></tr>
+    <% end %>
 
 </table>
 
 
-
-
-</section>

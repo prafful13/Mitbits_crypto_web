@@ -14,13 +14,16 @@
 	}
 	</script>
 
+<h1>Number of blocks in blockchain vs timestamp</h1>
 	<div style="width:75%;">
         			<canvas id="canvas"></canvas>
         		</div>
+        		<h1>Wallet Balances Vs Participants</h1>
     <div style="width:75%;">
 		<canvas id="canvas2"></canvas>
 	</div>
 </div>
+<h1>Wallet Balances Vs Miners</h1>
 <div style="width:75%;">
 <canvas id="canvas3"></canvas>
 </div>
@@ -56,7 +59,7 @@
 	    var data2 = {
 	        labels: nodes,
 	        datasets: [{
-	          label: 'My First dataset',
+	          label: 'Balances Vs Participants',
 
 	          fill: false,
 	          data: balances,
@@ -66,7 +69,7 @@
 				var data3 = {
 		        labels: miners,
 		        datasets: [{
-		          label: 'My First dataset',
+		          label: 'Balances Vs Miners',
 
 		          fill: false,
 		          data: balances_miners,
@@ -140,4 +143,4 @@ var ctx2 = document.getElementById('canvas2').getContext('2d');
 	};
 	</script>
 
-<section class="phx-hero">
+</section>
