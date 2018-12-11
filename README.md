@@ -50,11 +50,11 @@ This project is been continue from our last implementation of mitbits; a online 
  
 # Web Interface
 
-We have implemented a web interface using Elixir's phoenix. Bellow we explains various views of our interface and brief information about it and how you can navigate through them.
+We have implemented a web interface using Elixir's phoenix. Bellow we explain various views of our interface and brief information about them and how you can navigate through them.
 
 ### Home View
-- This is the base or we can call this home page for our simulation. It cointains link to all the other view so that we can navigate through the simulation. 
-- When we run the command "mix phx.server" the simulation is started and only home page is available when genesis block is being created and participants are spwaned.
+- This is the base or we can call this home page for our simulation. It cointains link to all the other views so that we can navigate through the simulation. 
+- When we run the command "mix phx.server" the simulation is started and only home page is available when genesis block is being created and participants are being spwaned.
 - To make it more user freindly we have included all view links in the footer of the web page of each view under the heading "userful links".
 - This view is available at  http://localhost:4000
 
@@ -64,7 +64,7 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explains v
 - Private key is used by nodes to digitally sign the node. using a sign(messgae,sk) function. This sign function takes a transaction and convert it into a string, then it used sk to sign it. Changing even the smallest thing changes this digital signature making the omnce signed transcation irriverisble and also digital signature protects the information of who created.
 - Public key which is used to identify a node, is also you to protect the authenticity of a transaction which we talked above. A verify(message, signature, pk) function turns true if the signature is created by the sk of this pk.
 - We create a sha256 hash of pk to the base 16 to name a node and also store in the :ets so that very node is aware of the other public key, but note the sk is only known to the node itself not the application. 
-- Each other's public key is hyperlinked to  this account. Clicking the public key  will re-direct you it's individual account.
+- Each participant's public key is hyperlinked to it's account. Clicking the public key will re-direct you to it's individual account.
 - This view is available at  http://localhost:4000/showParticipants
 
 ### Individual Account View
@@ -73,9 +73,9 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explains v
 - To reach this view: http://localhost:4000/participant/#public-key#
 
 ### Statistics view
-- This is the most exciting view of all. This view is used to see the metrics which our simulation is being generated.
-- We show a dynamic graph of size of blockchain(number of blocks) vs time of simulation. We have to refresh the page to see the updated graph. For this we periodically through data from our simulation to web interface using phoenix. For this we have run a background process in stats.ex file
-- We also show other data like number transactions made, mitibits mined and a bar graph to show the individual wallets of the participants 
+- This is the most exciting view of all. This view is used to see the metrics which our simulation is generating.
+- We show a dynamic graph of size of blockchain(number of blocks) vs time of simulation. We have to refresh the page to see the updated graph. For this we periodically through data from our simulation to web interface using phoenix. For this we run a background process in stats.ex file
+- We also show other data like number of transactions made, mitibits mined and a bar graph to show the individual wallets of the participants 
 - View this at http://localhost:4000/stats
 
 ### Blockchain view
