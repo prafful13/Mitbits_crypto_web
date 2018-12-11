@@ -70,7 +70,7 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explains v
 ### Individual Account View
 - This view shows the account balance of the participant.
 - To view this we need public key of the participant to sign in. We have not maintain a password for each participant login-in as the purpose of this web interface to show the simulation only.
-- To reach this view: http://localhost:4000/participant/<public-key>
+- To reach this view: http://localhost:4000/participant/#public-key#
 
 ### Statistics view
 - This is the most exciting view of all. This view is used to see the metrics which our simulation is being generated.
