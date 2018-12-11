@@ -86,7 +86,7 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explain va
 
 # Bonus part
 - For bonus part in the individual account view, we have added the API to make transactions from the individual's account to other participants in the simulation.
-- This is show cases in External-interference scenario below, also I will be speaking about it in our video
+- This is showm in External-interference scenario below, also I will be speaking about it in our video
 
 # Simulation Scenarios
 Below are descriptions of some mining/transacting simulation scenarios which we covered in the video of this project
@@ -96,8 +96,10 @@ Below are descriptions of some mining/transacting simulation scenarios which we 
 - We then navuagte through the stats view to show the results of our simulation.
 
 ### External-interference
-- In this scenario we make some transactions from some individual's account to add transactions to on-going simulation
-- We can then navigate though blockchain view to see these approved transactions
+- In this scenario we make some transactions from some individual's account to add transactions to on-going simulation.
+- We store the transaction ids for these transactions.
+- Later, after sometime we search in blockchain to see our transsaction being part of the block chain.
+- On average our system for 100 participants and 10 miners takes 1.5 sec to mine a block of 10 transactions.
 
 ### Transaction-boom
 - This scenario we generate after the first 10K transaction simulation is reached at it's saturation point. 
