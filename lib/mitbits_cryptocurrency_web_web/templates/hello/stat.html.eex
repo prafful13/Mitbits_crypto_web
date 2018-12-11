@@ -14,16 +14,16 @@
 	}
 	</script>
 
-<h1>Number of blocks in blockchain vs timestamp</h1>
+<h3>Number of blocks in blockchain vs timestamp</h3>
 	<div style="width:100%;">
         			<canvas id="canvas"></canvas>
         		</div>
-        		<h1>Wallet Balances Vs Participants</h1>
+        		<h3>Wallet Balances Vs Participants</h3>
     <div style="width:100%;">
 		<canvas id="canvas2"></canvas>
 	</div>
 </div>
-<h1>Wallet Balances Vs Miners</h1>
+<h3>Wallet Balances Vs Miners</h3>
 <div style="width:100%;">
 <canvas id="canvas3"></canvas>
 </div>
@@ -39,7 +39,7 @@
 			for(i=1;i<=100;i++)	{
 				nodes.push(i)
 			}
-			for(i=1;i<=5;i++)	{
+			for(i=1;i<=10;i++)	{
 				miners.push(i)
 			}
 
@@ -54,6 +54,14 @@
 
 
 	     console.log(nodes, balances);
+	     var colors = [];
+         while (colors.length <= 100) {
+             do {
+                 var color = Math.floor((Math.random()*1000000)+1);
+             } while (colors.indexOf(color) >= 0);
+             colors.push("#" + ("CC00F0" + color.toString(16)).slice(-6));
+         }
+         console.log(colors);
 
 
 	    var data2 = {
@@ -63,6 +71,7 @@
 
 	          fill: false,
 	          data: balances,
+	          backgroundColor: colors
 	        }]
 	      }
 
@@ -73,6 +82,7 @@
 
 		          fill: false,
 		          data: balances_miners,
+		          backgroundColor: colors
 		        }]
 		      }
 	    </script>
@@ -97,7 +107,9 @@
 				label: 'Number of blocks in blockchain vs timestamp',
 
 				fill: false,
-				data: numBlocks
+				data: numBlocks,
+						          backgroundColor: colors
+
 			}]
 		}
     // console.log(data)

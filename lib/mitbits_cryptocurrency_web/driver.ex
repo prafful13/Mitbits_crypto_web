@@ -16,7 +16,7 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
 
   def handle_info(:kickoff, {}) do
     numNodes = 100
-    numMiners = 5
+    numMiners = 10
     :ets.new(:MitbitsCryptocurrencyWeb, [:set, :public, :named_table])
 
     {numNodes, numMiners}
