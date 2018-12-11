@@ -10,6 +10,7 @@ defmodule MitbitsCryptocurrencyWeb.MinerSupervisor do
   end
 
   def add_miner(pk, sk, hash_name) do
-    {:ok, pid} = DynamicSupervisor.start_child(@me, {MitbitsCryptocurrencyWeb.Miner, {pk, sk, hash_name}})
+    {:ok, pid} =
+      DynamicSupervisor.start_child(@me, {MitbitsCryptocurrencyWeb.Miner, {pk, sk, hash_name}})
   end
 end

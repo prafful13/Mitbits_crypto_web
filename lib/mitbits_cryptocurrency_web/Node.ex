@@ -281,6 +281,49 @@ defmodule MitbitsCryptocurrencyWeb.Node do
     {:reply, {:ok}, {pk, sk, updated_blockchain, txn_list, balance, indexed_blockchain}}
   end
 
+  def handle_call(
+        {:req_for_MitbitsCryptocurrencyWeb, amount, req_hash},
+        _from,
+        {pk, sk, blockchain, txn_list, balance, indexed_blockchain}
+      ) do
+    if(balance >= amount) do
+      txn_msg = %{
+        amount: amount,
+        from: "node_" <> MitbitsCryptocurrencyWeb.Utility.getHash(pk),
+        to: "node_" <> req_hash
+      }
+
+      str_txn_msg = MitbitsCryptocurrencyWeb.Utility.txn_msg_to_string(txn_msg)
+
+      signature_txn_msg = MitbitsCryptocurrencyWeb.Utility.sign(str_txn_msg, sk)
+
+      txn = %{signature: signature_txn_msg, message: txn_msg, timestamp: System.system_time()}
+
+      updated_txn_list = txn_list ++ [txn]
+
+      # Send block to all
+      [{_, all_nodes}] = :ets.lookup(:MitbitsCryptocurrencyWeb, "nodes")
+
+      my_hash = MitbitsCryptocurrencyWeb.Utility.getHash(pk)
+
+      Enum.each(all_nodes, fn {hash} ->
+        # IO.inspect(hash)
+
+        if(my_hash != hash) do
+          GenServer.cast(
+            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> req_hash),
+            {:add_txn, txn}
+          )
+        end
+      end)
+
+      {:reply, {txn},
+       {pk, sk, blockchain, updated_txn_list, balance - amount, indexed_blockchain}}
+    else
+      {:reply, {:invalid}, {pk, sk, blockchain, txn_list, balance, indexed_blockchain}}
+    end
+  end
+
   def handle_cast(
         {:req_for_MitbitsCryptocurrencyWeb, amount, req_hash},
         {pk, sk, blockchain, txn_list, balance, indexed_blockchain}

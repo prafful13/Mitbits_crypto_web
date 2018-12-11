@@ -25,12 +25,7 @@ defmodule MitbitsCryptocurrencyWebWeb.Router do
     get "/stats", HelloController, :stats
     get "/create10KrandomTrxn", HelloController, :createTxn
 
-
-
-
-    #href="http://localhost:4000/createTransaction/<%= @participant %>/" + to + "/" + amount;
-
-
+    # href="http://localhost:4000/createTransaction/<%= @participant %>/" + to + "/" + amount;
   end
 
   # Other scopes may use custom stacks.
