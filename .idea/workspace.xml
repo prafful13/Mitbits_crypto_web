@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74e08697-bda6-4952-b22f-978c69b4d73e" name="Default Changelist" comment="" />
+    <list default="true" id="74e08697-bda6-4952-b22f-978c69b4d73e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,32 +23,40 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="beam" value="1" />
-          <entry key="eex" value="5" />
-          <entry key="ex" value="28" />
+          <entry key="beam" value="2" />
+          <entry key="eex" value="37" />
+          <entry key="ex" value="56" />
           <entry key="exs" value="1" />
+          <entry key="html" value="3" />
+          <entry key="js" value="2" />
           <entry key="lock" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="BEAM" value="1" />
-          <entry key="EEx" value="5" />
+          <entry key="BEAM" value="2" />
+          <entry key="EEx" value="37" />
           <entry key="Elixir Script" value="1" />
-          <entry key="Elixir file" value="28" />
+          <entry key="Elixir file" value="56" />
+          <entry key="HTML" value="3" />
+          <entry key="JavaScript" value="2" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="ex" value="37" />
+          <entry key="eex" value="4083" />
+          <entry key="ex" value="1393" />
           <entry key="exs" value="6" />
+          <entry key="html" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+          <entry key="EEx" value="4083" />
           <entry key="Elixir Script" value="6" />
-          <entry key="Elixir file" value="37" />
+          <entry key="Elixir file" value="1393" />
+          <entry key="HTML" value="51" />
         </counts>
       </usages-collector>
     </session>
@@ -54,19 +64,33 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/controllers/hello_controller.ex">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/txn.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="138" column="36" lean-forward="true" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="36" />
+            <state relative-caret-position="45">
+              <caret line="3" column="143" selection-start-line="3" selection-start-column="143" selection-end-line="3" selection-end-column="143" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/page/show.htmk.eex">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/stat.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+            <state relative-caret-position="286">
+              <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Stats.ex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -74,44 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/driver.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/controllers/page_controller.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/MinerSupervisor.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Node.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="284" column="42" selection-start-line="284" selection-start-column="10" selection-end-line="284" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/NodeSupervisor.ex">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="66" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+            <state relative-caret-position="360">
+              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -119,26 +107,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Miner.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2369">
-              <caret line="213" column="71" selection-start-line="213" selection-start-column="71" selection-end-line="213" selection-end-column="71" />
+            <state relative-caret-position="45">
+              <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/application.ex">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Node.ex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+            <state relative-caret-position="3645">
+              <caret line="243" column="28" lean-forward="true" selection-start-line="243" selection-start-column="28" selection-end-line="243" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/router.ex">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/home.html.eex">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="15">
+              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/account.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-116">
+              <caret line="53" selection-start-line="53" selection-end-line="55" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/show.html.eex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/controllers/hello_controller.ex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1680">
+              <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -155,28 +170,48 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>MitBits</find>
+      <find>app.js</find>
       <find>Mitbits</find>
+      <find>wallet</find>
+      <find>balance</find>
+      <find>get_balance</find>
+      <find>delete_txns</find>
     </findStrings>
     <replaceStrings>
       <replace>MitbitsCryptocurrencyWeb</replace>
     </replaceStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/views/hello_view.ex" />
-        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/index.html.eex" />
         <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/page/show.htmk.eex" />
-        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/router.ex" />
         <option value="$PROJECT_DIR$/mix.exs" />
-        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Node.ex" />
-        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Miner.ex" />
         <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/MinerSupervisor.ex" />
         <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/NodeSupervisor.ex" />
         <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Utility.ex" />
         <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/application.ex" />
-        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/driver.ex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/startup.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/home.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/show.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/account.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/router.ex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/random.html" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/index.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/page/index.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/random.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/layout/app.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/blockchain.html.eex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/txn.html.eex" />
         <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/controllers/hello_controller.ex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Node.ex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/driver.ex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Miner.ex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Stats.ex" />
+        <option value="$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/stat.html.eex" />
       </list>
     </option>
   </component>
@@ -186,6 +221,7 @@
     <option name="width" value="1419" />
     <option name="height" value="806" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -235,6 +271,22 @@
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="mitbits_cryptocurrency_web_web" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="hello" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mitbits_cryptocurrency_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mitbits_cryptocurrency_web" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="mitbits_cryptocurrency_web_web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mitbits_cryptocurrency_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mitbits_cryptocurrency_web" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="mitbits_cryptocurrency_web_web" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="page" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,6 +300,20 @@
               <item name="priv" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="mitbits_cryptocurrency_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mitbits_cryptocurrency_web" type="462c0819:PsiDirectoryNode" />
+              <item name="priv" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mitbits_cryptocurrency_web" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mitbits_cryptocurrency_web" type="462c0819:PsiDirectoryNode" />
+              <item name="priv" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -258,7 +324,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544408116591" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544519565312" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
@@ -300,32 +366,59 @@
     <frame x="21" y="23" width="1419" height="806" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24981844" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.24981844" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32913166" />
+      <window_info anchor="bottom" id="Run" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Designer" order="0" />
+      <window_info id="UI Designer" order="1" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.24981844" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Find" order="4" visible="true" weight="0.32913166" />
+      <window_info anchor="bottom" id="Run" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -345,9 +438,6 @@
     <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/views/error_helpers.ex">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/endpoint.ex">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/views/page_view.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -359,20 +449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="47" selection-start-column="47" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/show.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/index.html.eex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -396,23 +472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/page/index.html.eex">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Utility.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="5" column="41" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/router.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_build/dev/lib/mitbits_cryptocurrency_web/ebin/Elixir.MitbitsCryptocurrencyWebWeb.Endpoint.beam">
       <provider editor-type-id="BEAM" />
       <provider selected="true" editor-type-id="text-editor">
@@ -428,17 +487,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Node.ex">
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/page/show.htmk.eex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="284" column="42" selection-start-line="284" selection-start-column="10" selection-end-line="284" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Miner.ex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2369">
-          <caret line="213" column="71" selection-start-line="213" selection-start-column="71" selection-end-line="213" selection-end-column="71" />
+        <state relative-caret-position="30">
+          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -449,10 +501,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/application.ex">
+    <entry file="file://$PROJECT_DIR$/priv/static/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        <state relative-caret-position="-1216" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_build/dev/lib/mitbits_cryptocurrency_web/priv/static/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="509">
+          <caret line="115" column="52" selection-start-line="115" selection-start-column="52" selection-end-line="115" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -463,24 +520,155 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/driver.ex">
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/account.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/endpoint.ex">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/application.ex">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="38" />
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/random.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_build/dev/lib/mitbits_cryptocurrency_web/ebin/Elixir.MitbitsCryptocurrencyWeb.Utility.beam">
+      <provider editor-type-id="BEAM" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Utility.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="70" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/page/index.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="61" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/router.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/layout/app.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/index.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="61" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/random.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="35" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/blockchain.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/show.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/txn.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="143" selection-start-line="3" selection-start-column="143" selection-end-line="3" selection-end-column="143" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/controllers/hello_controller.ex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="138" column="36" lean-forward="true" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="36" />
+        <state relative-caret-position="1680">
+          <caret line="112" column="5" selection-start-line="112" selection-start-column="5" selection-end-line="112" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/page/show.htmk.eex">
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/account.html.eex">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="-116">
+          <caret line="53" selection-start-line="53" selection-end-line="55" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/home.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/driver.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Node.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3645">
+          <caret line="243" column="28" lean-forward="true" selection-start-line="243" selection-start-column="28" selection-end-line="243" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Miner.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web/Stats.ex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="23" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/mitbits_cryptocurrency_web_web/templates/hello/stat.html.eex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#section#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#section#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
