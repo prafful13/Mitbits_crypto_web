@@ -16,7 +16,7 @@
 	    setTimeout("location.reload(true);",t);
 	}
 	</script>
-	
+
 	<div style="width:75%;">
         			<canvas id="canvas2">yolo</canvas>
         		</div>
