@@ -36,7 +36,7 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
   def start_stats({acc, node_hash, miner_node_hash, miner_pk_hash_sk, numNodes, numMiners}) do
     # IO.inspect System.system_time(:seconds)
     curr_time = System.system_time(:seconds)
-    :ets.insert(:MitbitsCryptocurrencyWeb, {"time_blockchain", [{0, []}]})
+    :ets.insert(:MitbitsCryptocurrencyWeb, {"time_blockchain", [{curr_time, []}]})
     # :ets.insert(:MitbitsCryptocurrencyWeb, {"base_time", curr_time})
     MitbitsCryptocurrencyWeb.Stats.start()
     # IO.puts "hey"
