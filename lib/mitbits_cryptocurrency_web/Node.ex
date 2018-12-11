@@ -77,18 +77,18 @@ defmodule MitbitsCryptocurrencyWeb.Node do
 
               map
             else
-              {_, map} =
-                Map.get_and_update(
-                  map,
-                  MitbitsCryptocurrencyWeb.Utility.string_to_atom(txn.message.from),
-                  fn current_value ->
-                    if(current_value == nil) do
-                      {current_value, txn.message.amount}
-                    else
-                      {current_value, current_value - txn.message.amount}
-                    end
-                  end
-                )
+#              {_, map} =
+#                Map.get_and_update(
+#                  map,
+#                  MitbitsCryptocurrencyWeb.Utility.string_to_atom(txn.message.from),
+#                  fn current_value ->
+#                    if(current_value == nil) do
+#                      {current_value, txn.message.amount}
+#                    else
+#                      {current_value, current_value - txn.message.amount}
+#                    end
+#                  end
+#                )
 
               {_, map} =
                 Map.get_and_update(
@@ -141,18 +141,18 @@ defmodule MitbitsCryptocurrencyWeb.Node do
 
             map
           else
-            {_, map} =
-              Map.get_and_update(
-                map,
-                MitbitsCryptocurrencyWeb.Utility.string_to_atom(txn.message.from),
-                fn current_value ->
-                  if(current_value == nil) do
-                    {current_value, txn.message.amount}
-                  else
-                    {current_value, current_value - txn.message.amount}
-                  end
-                end
-              )
+#            {_, map} =
+#              Map.get_and_update(
+#                map,
+#                MitbitsCryptocurrencyWeb.Utility.string_to_atom(txn.message.from),
+#                fn current_value ->
+#                  if(current_value == nil) do
+#                    {current_value, txn.message.amount}
+#                  else
+#                    {current_value, current_value - txn.message.amount}
+#                  end
+#                end
+#              )
 
             {_, map} =
               Map.get_and_update(

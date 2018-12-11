@@ -175,14 +175,20 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
   def create(conn, params) do
     participant = Map.get(params, "participant")
     to = Map.get(params, "to")
-    amount = Map.get(params, "amount")
+    amount = String.to_integer(Map.get(params, "amount"))
 
-    GenServer.cast(
+    {txn} = GenServer.call(
       MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> participant),
       {:req_for_MitbitsCryptocurrencyWeb, amount, to}
     )
 
-    render(conn, "txn.html", participant: participant, to: to, amount: amount)
+    if(txn != :invalid) do
+      id = txn.id
+      render(conn, "txn.html", participant: participant, to: to, amount: amount, signature: id)
+    else
+      signature = :invalid
+      render(conn, "txn.html", participant: participant, to: to, amount: amount, signature: signature)
+    end
   end
 
   def blockchain(conn, params) do
