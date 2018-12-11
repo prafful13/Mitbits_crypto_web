@@ -202,6 +202,19 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
         :get_blockchain
       )
 
+      blockchain = Enum.reduce(blockchain, [], fn block, list ->
+        txns_list = Enum.reduce(block.txns, [], fn txn, txn_list ->
+          # IO.inspect txn
+          txn_list ++ [Map.to_list(txn)]
+        end)
+        IO.inspect block
+        {_,block} = Map.get_and_update(block, :txns, fn curr -> {curr, txns_list} end)
+        # block.txns = txns_list
+        list ++ [Map.to_list(block)]
+      end)
+
+      IO.inspect blockchain
+
     render(conn, "blockchain.html", blockchain: blockchain)
   end
 

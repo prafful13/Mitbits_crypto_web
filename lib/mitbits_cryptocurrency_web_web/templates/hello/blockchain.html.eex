@@ -19,13 +19,12 @@ tr:nth-child(even) {
 }
 </style>
 
+<script>
+console.log(<%=@blockchain%>);
+</script>
+
 <table>
-<%= for item <- @blockchain do %>
-  <td><%= item.hash %></td>
-  <td><%= item.previous_hash %></td>
-  <td><%= item.timestamp %></td>
-  <td><%= item.txns %></td>
-<% end %>
+
 </table>
 
 
