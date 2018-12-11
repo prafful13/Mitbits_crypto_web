@@ -19,13 +19,13 @@ tr:nth-child(even) {
 }
 </style>
 
-<script>
-console.log(<%=@blockchain%>);
-</script>
+<body>
+  djakldja
+  <script>
+  console.log(<%=@blockchain%>)
+  </script>
 
-<table>
-
-</table>
+</body>
 
 
 

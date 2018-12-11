@@ -18,6 +18,14 @@ defmodule MitbitsCryptocurrencyWeb.Node do
   end
 
   def handle_call(
+        :get_txn_list,
+        _from,
+        {pk, sk, blockchain, txn_list, balance, indexed_blockchain}
+      ) do
+    {:reply, txn_list, {pk, sk, blockchain, txn_list, balance, indexed_blockchain}}
+  end
+
+  def handle_call(
         :get_indexed_blockchain,
         _from,
         {pk, sk, blockchain, txn_list, balance, indexed_blockchain}
@@ -311,7 +319,7 @@ defmodule MitbitsCryptocurrencyWeb.Node do
 
         if(my_hash != hash) do
           GenServer.cast(
-            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> req_hash),
+            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
             {:add_txn, txn}
           )
         end
@@ -353,7 +361,7 @@ defmodule MitbitsCryptocurrencyWeb.Node do
 
         if(my_hash != hash) do
           GenServer.cast(
-            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> req_hash),
+            MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash),
             {:add_txn, txn}
           )
         end

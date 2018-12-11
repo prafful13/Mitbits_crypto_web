@@ -121,11 +121,12 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
       end)
 
     all_nodes = miner_node_hash ++ node_hash
+    temp_all_nodes = all_nodes -- [{first_miner_hash}]
 
     # IO.inspect(node_hash)
     :ets.insert(:MitbitsCryptocurrencyWeb, {"nodes", all_nodes})
 
-    Enum.each(node_hash, fn {hash} ->
+    Enum.each(temp_all_nodes, fn {hash} ->
       GenServer.cast(
         MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> first_miner_hash),
         {:req_for_MitbitsCryptocurrencyWeb, 10, hash}
