@@ -67,7 +67,7 @@ defmodule MitbitsCryptocurrencyWeb.Driver do
     {genesis_block} =
       GenServer.call(
         MitbitsCryptocurrencyWeb.Utility.string_to_atom("miner_" <> first_miner_hash),
-        {:mine_first, "thefoxjkfsndaljd"}
+        {:mine_first, "This is starting of something big in the year 2018"}
       )
 
     :ets.insert(:MitbitsCryptocurrencyWeb, {"prev_block_hash", genesis_block.hash})
