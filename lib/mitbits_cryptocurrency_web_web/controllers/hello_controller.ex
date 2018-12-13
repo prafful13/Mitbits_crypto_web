@@ -108,11 +108,19 @@ defmodule MitbitsCryptocurrencyWebWeb.HelloController do
         list ++ [MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_" <> hash)]
       end)
 
-    #IO.inspect(Map.keys(indexed_blockchain))
     {miners, nodes} = Map.split(indexed_blockchain, list)
-    #IO.inspect([miners, nodes])
 
-    render(conn, "stat.html", data: data, miners: miners, nodes: nodes)
+    [{first_miner} | _ ] = miners_hash
+
+    {curr_blockchain} = GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_"<>first_miner), :get_blockchain)
+    remaining_txns = GenServer.call(MitbitsCryptocurrencyWeb.Utility.string_to_atom("node_"<>first_miner), :get_txn_list)
+
+    {count_mined_txns, total_bitcoins} = Enum.reduce(curr_blockchain, {0, 900}, fn block, {count, tot} ->
+      {count + Enum.count(block.txns), tot + 100}
+    end)
+    count_remaining_txns = Enum.count(remaining_txns)
+
+    render(conn, "stat.html", data: data, miners: miners, nodes: nodes, count_remaining_txns: count_remaining_txns, count_mined_txns: count_mined_txns, total_bitcoins: total_bitcoins)
   end
 
   def createTxn(conn, params) do
