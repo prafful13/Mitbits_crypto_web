@@ -8,11 +8,6 @@
 		-ms-user-select: none;
 	}
 	</style>
-	<script>
-	function AutoRefresh(t) {
-	    setTimeout("location.reload(true);",t);
-	}
-	</script>
 
 <h3>Number of blocks in blockchain vs timestamp</h3>
 	<div style="width:100%;">
@@ -27,7 +22,18 @@
 <div style="width:100%;">
 <canvas id="canvas3"></canvas>
 </div>
-	<br>
+
+<h3>Transaction pool vs Mined Transactions</h3>
+<div style="width:100%;">
+<canvas id="canvas4"></canvas>
+</div>
+
+
+
+
+<h3>Number of bitcoins in circulation:  <%= @total_bitcoins %></h3>
+
+<br>
 
 
 	<script>
@@ -108,11 +114,30 @@
 
 				fill: false,
 				data: numBlocks,
-						          backgroundColor: colors
+				borderColor: "#3e95cd"
 
 			}]
 		}
-    // console.log(data)
+
+
+			var pie = [];
+			var c1 = <%= @count_remaining_txns %>
+			var c2 = <%= @count_mined_txns %>
+			pie.push(c1);
+			pie.push(c2);
+
+			data4 = {
+		    datasets: [{
+					backgroundColor: ["#3e95cd", "#8e5ea2"],
+		        data: pie
+		    }],
+
+		    // These labels appear in the legend and in the tooltips when hovering different arcs
+		    labels: [
+		        'Size of transaction pool',
+		        'Mined Transactions'
+		    ]
+		};
 
 	window.onload = function() {
 		var ctx = document.getElementById('canvas').getContext('2d');
@@ -152,7 +177,17 @@ var ctx2 = document.getElementById('canvas2').getContext('2d');
 		        }
 		    }
 		});
-	};
+
+		new Chart(document.getElementById("canvas4"), {
+		    type: 'doughnut',
+		    data: data4,
+		    options: {
+		      title: {
+		        display: true,
+		      }
+		    }
+		});
+};
 	</script>
 
 </section>

@@ -32,7 +32,7 @@ This project is been continue from our last implementation of mitbits; a online 
 - Providing a web interface to add transactions to online simulation
 
 # Defining Application Architecture
-- The Application consist of a supervisor which manages miner supervisor and node supervisor under it. This protects us application for getting terminated, as it restarts the application in such situation.
+- The Application consist of a supervisor which manages miner supervisor and node supervisor under it. This protects our application from getting terminated, as it restarts the application in such situation.
 - Miner supervisor and node supervisor hold beneath them miners and nodes genservers respectively. Why two different genservers for miners and nodes? This is because miners will be mining blocks asynchronous; competeting with each other to solve the puzzle of the block, this will slow down or maybe create a time out situations for the other processes like transactions, wallet updating etc.
 - Each node has a public key to identify them. Also each node also have private key(secret key) which is not accessable to other nodes.  
 - Only the nodes participates in transaction but to make a miner participate in the bitcoin exchange process, each miner node has a connected node which the same public key. The only difference it that the name of miner node is "miner_public_key" and connected node is "node_public_key"
@@ -75,7 +75,9 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explain va
 ### Statistics view
 - This is the most exciting view of all. This view is used to see the metrics which our simulation is generating.
 - We show a dynamic graph of size of blockchain(number of blocks) vs time of simulation. We have to refresh the page to see the updated graph. For this we periodically through data from our simulation to web interface using phoenix. For this we run a background process in stats.ex file
-- We also show other data like number of transactions made, mitibits mined and a bar graph to show the individual wallets of the participants 
+- First graph shows various things. The slope of the graph gives us the rate of our mining that is for target value of four zeros our system have average mine time of 1.5 sec. At any point on the graph we can get number of blocks in the blockchain; hence number of transactions made is 10 * number of blocks (as 10 transaction is the size of our block). Similarly 100 * number of blocks (reward mitbits) + 1000 (genesis block mitbits) is total number of mitbits mined.
+- In second graph we show the dynamic bar graph of wallet balances of participants. This keep on getting modified as transactions get approved in our blockchain.
+- In third graph we show the dynamic bar graph of wallet balances of miners. This keep on getting modified as transactions get approved in our blockchain. They usually have higher balances than participants due to 100 mitbits reward they get for mining a block.
 - View this at http://localhost:4000/stats
 
 ### Blockchain view
@@ -86,18 +88,20 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explain va
 
 # Bonus part
 - For bonus part in the individual account view, we have added the API to make transactions from the individual's account to other participants in the simulation.
-- This is show cases in External-interference scenario below, also I will be speaking about it in our video
+- This is showm in External-interference scenario below, also I will be speaking about it in our video
 
 # Simulation Scenarios
 Below are descriptions of some mining/transacting simulation scenarios which we covered in the video of this project
 
 ### Set-up
 - This scenario shows the generation of 100 participants and creating of 10K transactions.
-- We then navuagte through the stats view to show the results of our simulation.
+- We then navigate through the stats view to show the results of our simulation.
 
 ### External-interference
-- In this scenario we make some transactions from some individual's account to add transactions to on-going simulation
-- We can then navigate though blockchain view to see these approved transactions
+- In this scenario we make some transactions from some individual's account to add transactions to on-going simulation.
+- We store the transaction ids for these transactions.
+- Later, after sometime we search in blockchain to see our transsaction being part of the block chain.
+- On average our system for 100 participants and 10 miners takes 1.5 sec to mine a block of 10 transactions.
 
 ### Transaction-boom
 - This scenario we generate after the first 10K transaction simulation is reached at it's saturation point. 
