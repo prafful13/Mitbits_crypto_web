@@ -77,7 +77,7 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explain va
 - We show a dynamic graph of size of blockchain(number of blocks) vs time of simulation. We have to refresh the page to see the updated graph. For this we periodically through data from our simulation to web interface using phoenix. For this we run a background process in stats.ex file
 - First graph shows various things. The slope of the graph gives us the rate of our mining that is for target value of four zeros our system have average mine time of 1.5 sec. At any point on the graph we can get number of blocks in the blockchain; hence number of transactions made is 10 * number of blocks (as 10 transaction is the size of our block). Similarly 100 * number of blocks (reward mitbits) + 1000 (genesis block mitbits) is total number of mitbits mined.
 
-![Alt text](https://github.com/siddhantmittal7/Mitbits_Cryptocurrency_Web/tree/master/priv/static/images/1.png "Mining Rate")
+![Alt text](https://github.com/siddhantmittal7/Mitbits_Cryptocurrency_Web/blob/master/priv/static/images/1.png "Mining Rate")
 
 - In second graph we show the dynamic bar graph of wallet balances of participants. This keep on getting modified as transactions get approved in our blockchain.
 - In third graph we show the dynamic bar graph of wallet balances of miners. This keep on getting modified as transactions get approved in our blockchain. They usually have higher balances than participants due to 100 mitbits reward they get for mining a block.
