@@ -80,7 +80,17 @@ We have implemented a web interface using Elixir's phoenix. Bellow we explain va
 ![Alt text](https://github.com/siddhantmittal7/Mitbits_Cryptocurrency_Web/blob/master/priv/static/images/1.png "Mining Rate")
 
 - In second graph we show the dynamic bar graph of wallet balances of participants. This keep on getting modified as transactions get approved in our blockchain.
+
+![Alt text](https://github.com/siddhantmittal7/Mitbits_Cryptocurrency_Web/blob/master/priv/static/images/2.png "Wallet Balances")
+
 - In third graph we show the dynamic bar graph of wallet balances of miners. This keep on getting modified as transactions get approved in our blockchain. They usually have higher balances than participants due to 100 mitbits reward they get for mining a block.
+
+![Alt text](https://github.com/siddhantmittal7/Mitbits_Cryptocurrency_Web/blob/master/priv/static/images/3.png "Miner Rewards")
+
+- We also show a pie chart showing the approved transactions and transaction still pending in transaction pool at each node.
+
+![Alt text](https://github.com/siddhantmittal7/Mitbits_Cryptocurrency_Web/blob/master/priv/static/images/4.png "Transaction Details")
+
 - View this at http://localhost:4000/stats
 
 ### Blockchain view
