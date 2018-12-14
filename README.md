@@ -121,6 +121,9 @@ Below are descriptions of some mining/transacting simulation scenarios which we 
 - Now we create one more API to create 10K random transactions, you can find this link in the userful link section in footer.
 - Now we show the stats view to show our findings and changes in various metrics
 
+# Demo Video 
+You can find a video of demo of this simulation here https://www.youtube.com/watch?v=nSZa75pTssw. Its a smaller version, for detailed code running and explaination see https://www.youtube.com/watch?v=KFko2o0XuFA&feature=youtu.be.
+
 # Protocols
 
 ### Public key and private key generation
